@@ -1,12 +1,31 @@
 # Framework Mapping: UAE AI Compliance for Banking & Fintech
 
+> **Version: 1.1 | Last Reviewed: April 2026**
 > Cross-reference matrix for CBUAE Guidance Note on Responsible AI, CBUAE Model Management Standards Rulebook, and UAE AI Charter
+
+---
+
+## How the Three Frameworks Relate (Corrected Architecture)
+
+The three frameworks are **parallel and complementary instruments**, not a simple top-down hierarchy. Understanding their distinct functions prevents both over-reliance on one instrument and gaps from assuming one covers the others.
+
+| Framework | Function | Legal Nature | Examiner Use |
+|-----------|----------|-------------|--------------|
+| **UAE AI Charter** | National ethical values & principles | Policy document; referenced by all regulators | Basis for board-level policy expectations; increasingly cited in examinations |
+| **CBUAE MMS Rulebook** | Model lifecycle governance — development, validation, monitoring, documentation | Binding Rulebook standard (mandatory) | Primary instrument for model risk examinations; establishes operational standards |
+| **CBUAE Guidance Note (Feb 2026)** | Consumer-facing AI obligations — human oversight, explainability, fairness, disclosure | Supervisory guidance (examination expectation) | Highest current examination priority as the most recently issued instrument; drives consumer protection findings |
+
+**Relationship:** The Charter informs and is incorporated into both operational instruments. The MMS and Guidance Note are parallel — neither is subordinate to the other. The MMS governs model governance broadly; the Guidance Note overlays consumer protection obligations specifically for AI decisions affecting customers.
+
+**Conflict resolution priority:** Guidance Note (consumer protection; most recent; highest current examiner focus) → MMS (operational model standard) → Charter (ethical baseline; shapes interpretation).
 
 ---
 
 ## 1. Master Requirements Matrix
 
-This matrix maps every major requirement domain to its applicable framework(s). Use this to eliminate duplication and identify gaps.
+This matrix maps every major requirement domain to its applicable framework(s). Use this to eliminate duplication and identify compliance gaps.
+
+**Priority key:** 🔴 CRITICAL (examination finding if missing) | 🟠 HIGH (significant finding) | 🟡 MEDIUM (noted finding) | 🟢 LOW/Emerging
 
 | Requirement Domain | CBUAE Guidance Note (Feb 2026) | CBUAE MMS Rulebook | UAE AI Charter (June 2024) | Priority |
 |---|---|---|---|---|
@@ -14,6 +33,7 @@ This matrix maps every major requirement domain to its applicable framework(s). 
 | AI/Model Governance Committee | ✅ Required | ✅ Required | Referenced | 🔴 CRITICAL |
 | Named Responsible AI Officer (RAO) | ✅ Required | Implied via roles | Referenced | 🔴 CRITICAL |
 | Board-level AI risk reporting | ✅ Min. annual | ✅ Required | Referenced | 🔴 CRITICAL |
+| High-Impact AI Decision classification | ✅ Mandatory | Referenced | — | 🔴 CRITICAL |
 | Model Inventory (central register) | Referenced | ✅ Mandatory | — | 🔴 CRITICAL |
 | Model Risk Tiering (3-tier minimum) | Referenced | ✅ Mandatory | — | 🔴 CRITICAL |
 | Model Concept Document | Referenced | ✅ Mandatory | — | 🔴 CRITICAL |
@@ -31,14 +51,15 @@ This matrix maps every major requirement domain to its applicable framework(s). 
 | Pre-deployment bias / fairness testing | ✅ Mandatory | ✅ In validation | Principle 5 | 🔴 CRITICAL |
 | Ongoing fairness monitoring | ✅ Mandatory | ✅ In monitoring | Principle 5 | 🔴 CRITICAL |
 | Protected characteristics excluded as features | ✅ Mandatory | ✅ Dev standards | Principle 5 | 🔴 CRITICAL |
+| Training data quality assessment | ✅ Referenced | ✅ Mandatory | Principle 3 | 🔴 CRITICAL |
+| Training data lineage documentation | ✅ Referenced | ✅ Mandatory | Principle 3 | 🔴 CRITICAL |
+| Lawful basis for training data (UAE PDPL) | ✅ Referenced | Referenced | ✅ Principle 3 | 🔴 CRITICAL |
 | Consumer AI disclosure (at point of interaction) | ✅ Mandatory | — | Principle 4 | 🟠 HIGH |
 | AI chatbot identification requirement | ✅ Mandatory | — | Principle 4 | 🟠 HIGH |
 | Adverse decision notification to customer | ✅ Mandatory | — | Principle 1 | 🟠 HIGH |
 | AI complaints category in complaints system | ✅ Mandatory | — | Principle 1 | 🟠 HIGH |
 | Customer redress for AI-caused harm | ✅ Mandatory | — | Principle 1 | 🟠 HIGH |
-| Training data quality assessment | ✅ Referenced | ✅ Mandatory | Principle 3 | 🟠 HIGH |
-| Training data lineage documentation | ✅ Referenced | ✅ Mandatory | Principle 3 | 🟠 HIGH |
-| UAE PDPL compliance in AI pipelines | ✅ Referenced | Referenced | ✅ Principle 3 | 🟠 HIGH |
+| UAE PDPL compliance in AI pipelines (broadly) | ✅ Referenced | Referenced | ✅ Principle 3 | 🟠 HIGH |
 | Third-party / vendor AI inventory | ✅ Mandatory | Referenced | — | 🟠 HIGH |
 | Vendor AI risk assessment | ✅ Mandatory | Referenced | — | 🟠 HIGH |
 | Vendor contract: audit rights | ✅ Mandatory | — | — | 🟠 HIGH |
@@ -58,6 +79,7 @@ This matrix maps every major requirement domain to its applicable framework(s). 
 | Training programme (staff + board) | Referenced | Referenced | Referenced | 🟡 MEDIUM |
 | Regulatory change management process | Referenced | Referenced | Referenced | 🟡 MEDIUM |
 | GenAI hallucination controls | ✅ Referenced | ✅ Model risk | Principle 2 | 🟡 MEDIUM |
+| Bancassurance AI (Insurance Authority overlay) | ⚡ Partial (CBUAE scope) | ⚡ Partial (CBUAE scope) | Referenced | 🟡 MEDIUM |
 | ESG / Sustainability in AI operations | — | — | ✅ Principle 7 | 🟢 LOW/Emerging |
 
 ---
@@ -70,6 +92,7 @@ These requirements appear **only** in the Guidance Note and have no direct equiv
 
 | Requirement | Detail |
 |-------------|--------|
+| High-Impact AI Decision classification | Institutions must formally classify which AI systems constitute high-impact decisions and document the rationale |
 | Consumer AI disclosure at point of interaction | Customers must be told they are interacting with an AI at the moment of interaction — not just in product terms |
 | AI chatbot / virtual assistant identification | Chatbots must identify themselves as AI at session start |
 | Individual right to request human review | Each customer has the right to ask for a human to review any high-impact AI decision affecting them |
@@ -92,6 +115,7 @@ These requirements appear **only** in the MMS and have no direct equivalent in t
 | Model Development Document | Full technical specification including feature justification, selection rationale, test results |
 | Validation Report with formal opinion | The opinion must be one of three explicit options: Approve / Approve with Conditions / Reject |
 | Validation independence (four-eyes) | Structural separation between model development team and validation team |
+| Proportionate Tier 2 validation | Tier 2 validation may be lighter-touch than Tier 1 — the institution must define in policy what "proportionate" means |
 | Model Operational Manual | How-to guide for running, monitoring, and overriding the model in production |
 | Model Change Log | Continuous log of all post-deployment changes |
 | Model Change Management process | Defined workflow for material vs. minor model changes, including re-validation triggers |
@@ -156,27 +180,29 @@ The following requirements are addressed by all three frameworks. A single progr
 
 ## 4. Regulatory Hierarchy and Conflict Resolution
 
-When requirements across frameworks appear to conflict, apply this hierarchy:
+When requirements across frameworks appear to conflict, apply this hierarchy for **conflict resolution purposes**:
 
-1. **CBUAE Guidance Note** (most specific; consumer protection; highest examiner scrutiny)
-2. **CBUAE MMS Rulebook** (binding operational standard; model lifecycle)
-3. **UAE AI Charter** (values and principles; informs interpretation of the above)
+1. **CBUAE Guidance Note** — highest current examiner focus; consumer protection requirements; most recently issued (Feb 2026)
+2. **CBUAE MMS Rulebook** — binding operational standard; model lifecycle requirements; foundational
+3. **UAE AI Charter** — ethical and policy baseline; shapes interpretation; apply where more demanding than above
 
-In practice, genuine conflicts are rare. The frameworks are complementary. Where the Charter is more demanding than the MMS or Guidance Note on a specific point (e.g., inclusivity), LFIs should aspire to meet the Charter standard as regulatory expectations in that area are likely to harden.
+> **Note:** In practice, genuine conflicts between these instruments are rare — they are deliberately complementary. Where the Charter sets a higher standard than the MMS or Guidance Note on a specific point (e.g., inclusivity for underserved populations), aspire to meet the Charter standard, as regulatory expectations in that area are likely to harden.
 
----
-
-## 5. Proportionality Map by Institution Size
-
-| Institution Size | Tier 1 Models | Governance Structure | Validation | Third-Party AI |
-|-----------------|--------------|---------------------|------------|----------------|
-| **Large Bank (>AED 20Bn assets)** | Full standalone validation team; quarterly board reporting; dedicated RAO role | Board AI Committee; stand-alone model risk function | Internal validation team; external for systemic T1 | Full TPRM integration; legal review of all AI contracts |
-| **Mid-size Bank** | Internal validation capability; senior management reporting | AI risk embedded in Risk Committee; RAO = CRO | Internal team (may share with other risk functions) | AI due diligence checklist; contract review |
-| **Small Bank / Finance Co.** | Proportionate — document and justify | RAO = CRO or CEO; governance via existing risk committee | External validation acceptable for T1 | Standard vendor AI risk questionnaire |
-| **Regulated Fintech** | Proportionate to model count | RAO = CTO or CEO; board oversight | External validation; or peer review + documentation | Third-party AI assessed per engagement |
-
-> **Key principle:** Proportionality adjusts **how** requirements are met — not **whether** they are met. Always document the proportionality rationale explicitly.
+> **Note on Guidance Note hierarchy:** The Guidance Note sitting at position 1 for *conflict resolution purposes* does not mean it is a higher-level instrument than the MMS in a legislative sense. The MMS is a binding Rulebook standard (formally superior in legal hierarchy). The positioning here reflects *current examination priority* — examiners are actively using the Feb 2026 Guidance Note as their primary assessment lens for consumer-facing AI. Both instruments must be fully satisfied.
 
 ---
 
-*Last updated: April 2026 | Part of the [UAE AI Compliance Guide](./README.md)*
+## 5. Proportionality Map by Institution Type
+
+| Institution Type | Tier 1 Model Approach | Governance Structure | Validation Approach | Third-Party AI |
+|-----------------|----------------------|---------------------|--------------------|--------------------|
+| **D-SIB / Large Bank** | Full standalone validation team; quarterly board reporting; dedicated RAO role; likely 20+ Tier 1 models; 18–24 month validation cycle for full coverage | Board AI Committee or Board Risk Committee with AI sub-agenda; stand-alone Model Risk function | Internal validation team; external specialist for highest-risk GenAI/ML Tier 1 models | Full TPRM integration; Legal review of all AI contracts; ongoing monitoring of vendor model versions |
+| **Mid-size Bank** | Internal validation capability; senior management reporting; 10–20 Tier 1 models typical; 12–18 month cycle | AI risk embedded in Risk Committee; RAO = CRO or dedicated Head of Model Risk | Internal team (may share resources); external for models outside internal expertise | AI due diligence checklist; contract review; risk-rated vendor register |
+| **Small Bank / Finance Co.** | Proportionate — justify and document; typically 3–10 Tier 1 models | RAO = CRO or CEO; governance via existing risk committee with AI standing agenda item | External validation acceptable and recommended for Tier 1 | Standard vendor AI risk questionnaire; legal review of material contracts |
+| **Regulated Fintech** | Proportionate to model count; typically 1–5 Tier 1 models | RAO = CTO or CEO; board-level oversight; proportionality rationale documented | External validation; or structured internal peer review with documented independence | Third-party AI assessed per engagement; contract templates reviewed by Legal |
+
+> **Proportionality note:** These categories are illustrative guidance — they are NOT CBUAE-defined regulatory tiers. Institutions should apply proportionality based on their actual model inventory, risk profile, and consumer impact — not balance sheet size alone. Critically: proportionality adjusts **how** requirements are met, never **whether** they apply.
+
+---
+
+*Version 1.1 | Last updated: April 2026 | Part of the [UAE AI Compliance Guide](./README.md) | See [CHANGELOG.md](./CHANGELOG.md)*
