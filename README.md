@@ -2,10 +2,12 @@
 
 ## Three-Framework Integration: CBUAE Responsible AI Guidance Note · CBUAE Model Management Standards · UAE AI Charter
 
-> **Edition: 2026 | Target Audience: Licensed Financial Institutions (LFIs), Fintechs, Boards, CROs, CTOs, Compliance Officers**
+> **Version: 1.1 | Edition: 2026 | Target Audience: Licensed Financial Institutions (LFIs), Fintechs, Boards, CROs, CTOs, Compliance Officers**
+> **Last Reviewed Against Frameworks: April 2026**
 
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
 ![Sector](https://img.shields.io/badge/Sector-UAE%20Banking%20%26%20Fintech-blue)
+![Version](https://img.shields.io/badge/Version-1.1-orange)
 ![Status](https://img.shields.io/badge/Status-Active-green)
 
 ---
@@ -18,7 +20,8 @@
 | `FRAMEWORK-MAPPING.md` | Detailed cross-framework requirements matrix |
 | `IMPLEMENTATION-ROADMAP.md` | Phased implementation plan with workstreams |
 | `AUDIT-CHECKLIST.md` | Complete audit & examination readiness checklists (70 controls) |
-| `BOARD-BRIEFING.md` | One-page board briefing card |
+| `BOARD-BRIEFING.md` | Board briefing card |
+| `CHANGELOG.md` | Version history and change log |
 
 ---
 
@@ -26,13 +29,14 @@
 
 1. [Executive Overview](#1-executive-overview)
 2. [Understanding the Three Frameworks](#2-understanding-the-three-frameworks)
-3. [Framework Mapping](#3-framework-mapping)
-4. [Implementation Roadmap](#4-implementation-roadmap)
-5. [Audit & Examination Readiness Checklist](#5-audit-and-examination-readiness-checklist)
-6. [Key Artefacts Library](#6-key-artefacts-library)
-7. [UAE-Specific Practical Considerations](#7-uae-specific-practical-considerations)
-8. [Glossary](#8-glossary)
-9. [Board Briefing Card](#9-board-briefing-card)
+3. [High-Impact AI Decision Definition](#3-high-impact-ai-decision-definition)
+4. [Framework Mapping](#4-framework-mapping)
+5. [Implementation Roadmap](#5-implementation-roadmap)
+6. [Audit & Examination Readiness Checklist](#6-audit-and-examination-readiness-checklist)
+7. [Key Artefacts Library](#7-key-artefacts-library)
+8. [UAE-Specific Practical Considerations](#8-uae-specific-practical-considerations)
+9. [Glossary](#9-glossary)
+10. [Board Briefing Card](#10-board-briefing-card)
 
 ---
 
@@ -48,17 +52,35 @@ The UAE has moved faster than most jurisdictions in translating AI ambition into
 | 2 | **CBUAE Rulebook — Big Data Analytics & AI (Model Management Standards)** | In-force; foundational | All Licensed Financial Institutions |
 | 3 | **UAE AI Charter** | Published June 2024; actively cited | All entities operating in UAE |
 
-These three instruments form a **layered compliance architecture**:
+### 1.2 How the Three Frameworks Relate
+
+The three frameworks operate at **different levels of abstraction and have different regulatory functions**. They are not a simple hierarchy — they are complementary and mutually reinforcing:
 
 ```
-UAE AI Charter (national ethical values & principles)
-        ↓
-CBUAE Model Management Standards (operational model governance)
-        ↓
-CBUAE Guidance Note on Responsible AI (consumer-facing AI obligations)
+┌─────────────────────────────────────────────────────────────┐
+│              UAE AI CHARTER (June 2024)                     │
+│  National ethical values, principles & policy baseline      │
+│  Applies to: all UAE entities | Referenced by all regulators│
+└───────────────────┬─────────────────────────────────────────┘
+                    │ Informs and is incorporated into ↓
+        ┌───────────┴──────────────────────┐
+        │                                  │
+┌───────▼──────────────┐     ┌─────────────▼──────────────────┐
+│  CBUAE MMS RULEBOOK  │     │  CBUAE GUIDANCE NOTE (Feb 2026)│
+│  Model lifecycle:    │     │  Consumer-facing AI:            │
+│  development,        │◄───►│  human oversight,              │
+│  validation,         │     │  explainability,               │
+│  monitoring,         │     │  fairness, disclosure,         │
+│  documentation       │     │  vendor accountability         │
+│  BINDING standard    │     │  SUPERVISORY expectation       │
+│  Examiner scrutiny:  │     │  Examiner scrutiny:            │
+│  Model governance    │     │  Consumer protection           │
+└──────────────────────┘     └────────────────────────────────┘
 ```
 
-### 1.2 Who Is In Scope
+> **Important:** The MMS and Guidance Note are parallel instruments with equal regulatory force — neither is subordinate to the other. For **examination priority**, the Guidance Note (Feb 2026) currently attracts the highest supervisory scrutiny as it is the most recently issued instrument. For **operational depth**, the MMS provides the most granular requirements. A compliant institution must satisfy both.
+
+### 1.3 Who Is In Scope
 
 | Entity Type | MMS | Guidance Note | AI Charter |
 |-------------|-----|---------------|------------|
@@ -68,6 +90,9 @@ CBUAE Guidance Note on Responsible AI (consumer-facing AI obligations)
 | Licensed payment service providers | ✅ Where AI models used | ✅ Where consumer-facing | ✅ Policy baseline |
 | Fintechs (CBUAE regulated) | ✅ Proportionate | ✅ Full | ✅ Policy baseline |
 | ADGM/DIFC-licensed entities | ⚡ Indirect (own regulators) | ⚡ Indirect | ✅ Policy baseline |
+| Bancassurance / Insurance-adjacent operations | ✅ Full + Insurance Authority overlay | ✅ Full | ✅ Policy baseline |
+
+> **Note for bancassurance operations:** LFIs operating insurance or bancassurance products are subject to an additional layer of AI-related expectations from the Insurance Authority of the UAE (IA). This guide covers the CBUAE frameworks; institutions with insurance activities should conduct a parallel review against IA guidance.
 
 ---
 
@@ -104,8 +129,12 @@ CBUAE Guidance Note on Responsible AI (consumer-facing AI obligations)
 | Tier | Characteristics | Minimum Requirements |
 |------|----------------|----------------------|
 | **Tier 1 (High)** | High-impact consumer decisions; regulatory capital; complex/opaque methodology | Full independent validation; Board oversight; annual review |
-| **Tier 2 (Medium)** | Moderate impact; internal management; simpler methodology | Validation required; Senior Management oversight; 18-month cycle |
+| **Tier 2 (Medium)** | Moderate impact; internal management; simpler methodology | Validation required (proportionate depth); Senior Management oversight; 18-month cycle |
 | **Tier 3 (Low)** | Low impact; narrow use; transparent methodology | Documented owner; periodic review; lighter validation |
+
+> **Note on Tier 2 validation:** Tier 2 validation may be proportionately lighter than Tier 1 — a structured review covering key risk areas rather than a full independent validation equivalent. This should be documented in the Model Risk Management Policy with clear criteria for what "proportionate" means in the institution's context.
+
+> **Note on tiering in practice:** See [Section 3](#3-high-impact-ai-decision-definition) for the High-Impact AI Decision Definition and the Tiering Decision Framework in [IMPLEMENTATION-ROADMAP.md Workstream 1.3](./IMPLEMENTATION-ROADMAP.md).
 
 #### Five Required Model Documents (per Tier 1 & 2 model)
 
@@ -149,7 +178,78 @@ CBUAE Guidance Note on Responsible AI (consumer-facing AI obligations)
 
 ---
 
-## 3. Framework Mapping
+## 3. High-Impact AI Decision Definition
+
+This section is critical. The entire consumer protection architecture of the CBUAE Guidance Note — human oversight, consumer disclosures, Tier 1 model classification, explainability, and redress — is triggered by whether a decision is classified as "high-impact." Without a clear, consistently applied definition, institutions will under-classify their AI exposure, creating systematic blind spots that will be found in examinations.
+
+### 3.1 Definition
+
+A **High-Impact AI Decision** is any decision, recommendation, or action produced or materially influenced by an AI system that meets **one or more** of the following criteria:
+
+| Criterion | Threshold | Examples |
+|-----------|-----------|---------|
+| **A — Financial Access** | The decision determines or materially influences a customer's access to a financial product or service | Credit approval/rejection; loan eligibility; account opening; overdraft limit; mortgage offer; BNPL eligibility |
+| **B — Financial Terms** | The decision determines or materially influences the price, rate, fee, or terms offered to a customer | Interest rate pricing; insurance premium calculation; fee tier assignment; FX rate applied |
+| **C — Regulatory Consequence** | The decision triggers or suppresses a regulatory action affecting the customer | AML transaction blocking; fraud flag leading to account freeze; SAR-triggering alert; sanctions match |
+| **D — Customer Relationship** | The decision materially affects the continuation or status of the customer relationship | Account closure recommendation; credit limit reduction; service restriction; complaint prioritisation/suppression |
+| **E — Scale Threshold** | The system makes automated decisions affecting a large number of customers simultaneously, even if each individual decision appears minor | Marketing segmentation affecting product availability to >1,000 customers; automated repricing affecting a customer portfolio |
+
+### 3.2 Borderline Cases — Decision Framework
+
+Use this decision tree for cases that don't clearly meet criteria A–E:
+
+```
+Would a reasonable customer consider this decision significant 
+to their financial wellbeing or access to services?
+    │
+    ├── YES → High-Impact. Apply all Guidance Note obligations.
+    │
+    └── NO → Does the decision affect any regulatory reporting 
+              obligation or internal risk rating?
+                  │
+                  ├── YES → High-Impact (Criterion C/D).
+                  │
+                  └── NO → Is the system making decisions for 
+                            >1,000 customers at once?
+                                │
+                                ├── YES → High-Impact (Criterion E).
+                                │
+                                └── NO → Standard AI. Apply MMS 
+                                         (Tier 2/3 as appropriate).
+                                         No Guidance Note consumer 
+                                         obligations triggered.
+```
+
+### 3.3 High-Impact Classification — Common Use Cases
+
+| Use Case | High-Impact? | Criterion | Notes |
+|----------|-------------|-----------|-------|
+| Credit scoring / loan decisioning | ✅ Yes | A | Always Tier 1. Core Guidance Note use case. |
+| Mortgage affordability model | ✅ Yes | A, B | Tier 1. |
+| AML transaction monitoring | ✅ Yes | C | Tier 1. Even if most alerts don't result in action. |
+| Fraud detection (account freeze consequence) | ✅ Yes | C, D | Tier 1. |
+| Interest rate pricing engine | ✅ Yes | B | Tier 1 if customer-facing. |
+| Insurance premium AI (bancassurance) | ✅ Yes | B | Tier 1. Insurance Authority overlay also applies. |
+| Product recommendation engine | ✅ Yes | A, E | Tier 1 if steers customers to/from financial products. |
+| AI chatbot (customer service only, no decisions) | ⚠️ Partial | — | Guidance Note Pillar 5 (identification) applies; Pillars 2–4 depend on whether the chatbot makes or influences decisions. |
+| Marketing segmentation (general) | ⚠️ Depends | E | High-impact if it determines product availability to customers. Not high-impact if purely for advertising targeting. |
+| Internal fraud risk scoring (staff) | ❌ No | — | Not consumer-facing. MMS applies; Guidance Note consumer obligations do not. |
+| Internal credit portfolio stress model | ❌ No | — | Not consumer-facing. Tier 1/2 MMS model; no Guidance Note consumer obligations. |
+| Complaint triage / routing | ⚠️ Depends | D | High-impact if suppresses or delays complaint investigation. Otherwise standard. |
+
+### 3.4 Documentation Requirement
+
+For every AI system in the Model Inventory, the institution must document:
+1. Whether the system makes or influences a High-Impact Decision (Yes / No / Partial)
+2. Which criterion (A–E) applies
+3. The rationale for borderline classifications — approved by the Responsible AI Officer
+4. The resulting model tier assignment
+
+This documentation must be available for CBUAE examination. Examiners will specifically test whether the institution has correctly identified all high-impact AI use cases.
+
+---
+
+## 4. Framework Mapping
 
 See **[FRAMEWORK-MAPPING.md](./FRAMEWORK-MAPPING.md)** for the complete cross-framework requirements matrix.
 
@@ -174,7 +274,7 @@ MMS (validation requirement), Guidance Note (ongoing monitoring obligation), Cha
 
 ---
 
-## 4. Implementation Roadmap
+## 5. Implementation Roadmap
 
 See **[IMPLEMENTATION-ROADMAP.md](./IMPLEMENTATION-ROADMAP.md)** for the full phased plan with workstreams, deliverables, and timelines.
 
@@ -186,29 +286,31 @@ See **[IMPLEMENTATION-ROADMAP.md](./IMPLEMENTATION-ROADMAP.md)** for the full ph
 | **Phase 2 — Operationalisation** | Months 4–9 | Build the Machine: full MMS lifecycle + Guidance Note gaps closed | Model docs, Validation programme, Monitoring, Consumer disclosures, Vendor AI review |
 | **Phase 3 — Maturity** | Months 10–18+ | Sustain and Improve: audit coverage, board reporting, regulatory engagement | Internal Audit AI plan, Board AI Dashboard, Training programme, Regulatory watch |
 
+> **Timeline note:** The phase timelines above are calibrated for a proportionate institution (regulated fintech or small-to-mid bank with fewer than 20 AI models). Large banks with 50+ models should plan for 18–24 months to complete full Tier 1 validation coverage. See IMPLEMENTATION-ROADMAP.md for institution-size guidance.
+
 ---
 
-## 5. Audit and Examination Readiness Checklist
+## 6. Audit and Examination Readiness Checklist
 
 See **[AUDIT-CHECKLIST.md](./AUDIT-CHECKLIST.md)** for all 70 controls across 10 domains.
 
-| Domain | Controls | Framework |
-|--------|----------|-----------|
-| Governance & Accountability | 7 | All three |
-| Model Inventory | 7 | MMS |
-| Model Development & Documentation | 7 | MMS |
-| Independent Validation | 7 | MMS |
-| Model Monitoring | 6 | MMS |
-| Consumer Protection & Disclosure | 9 | Guidance Note + Charter |
-| Fairness & Bias | 7 | All three |
-| Third-Party & Vendor AI | 7 | Guidance Note |
-| Data Governance for AI | 6 | Guidance Note + Charter |
-| Internal Audit AI Coverage | 7 | All three |
-| **TOTAL** | **70** | |
+| Domain | Controls | 🔴 Critical | Framework |
+|--------|----------|------------|-----------|
+| Governance & Accountability | 7 | 5 | All three |
+| Model Inventory | 7 | 4 | MMS |
+| Model Development & Documentation | 7 | 5 | MMS |
+| Independent Validation | 7 | 6 | MMS |
+| Model Monitoring | 6 | 4 | MMS |
+| Consumer Protection & Disclosure | 9 | 7 | Guidance Note + Charter |
+| Fairness & Bias | 7 | 4 | All three |
+| Third-Party & Vendor AI | 7 | 5 | Guidance Note |
+| Data Governance for AI | 6 | 3 | Guidance Note + Charter |
+| Internal Audit AI Coverage | 7 | 0 | All three |
+| **TOTAL** | **70** | **43** | |
 
 ---
 
-## 6. Key Artefacts Library
+## 7. Key Artefacts Library
 
 Every LFI must produce and maintain the following documentation:
 
@@ -219,30 +321,34 @@ Every LFI must produce and maintain the following documentation:
 | 3 | AI Governance Committee ToR | Legal/Governance | Board | Annual review | GN + MMS |
 | 4 | Model Inventory Register | CRO/CDO | Gov Committee | Continuous | MMS |
 | 5 | Model Tiering Methodology | CRO | Gov Committee | Annual review | MMS |
-| 6 | Model Concept Document (per model) | Model Developer | Model Risk | Pre-development | MMS |
-| 7 | Model Development Document (per model) | Model Developer | Gov Committee | Post-development | MMS |
-| 8 | Validation Report (per model) | Validation Team | Gov Committee | Per cycle | MMS |
-| 9 | Validation Finding Tracker | Model Risk | CRO | Continuous | MMS |
-| 10 | Operational Manual (per model) | Model Owner | Model Risk | At deployment | MMS |
-| 11 | Model Change Log (per model) | Model Owner | Model Risk | Per change | MMS |
-| 12 | Model Monitoring Plan (per model) | Model Owner | Model Risk | At deployment | MMS |
-| 13 | Monitoring Reports (per model) | Model Owner | Gov Committee | Quarterly (T1) | MMS |
-| 14 | Fairness Testing Report (per model) | Validation Team | Gov Committee | Per validation | MMS + GN |
-| 15 | Vendor AI Risk Assessment | Procurement/Risk | CRO | Per vendor | GN |
-| 16 | Consumer AI Disclosure Language | Legal/Compliance | CCO | Annual review | GN + Charter |
-| 17 | Human Review Process Document | Operations | CCO | Annual review | GN |
-| 18 | AI Complaints Procedure | Compliance | CCO | Annual review | GN |
-| 19 | Board AI Risk Report | CRO/RAO | Board | Quarterly | All |
-| 20 | AI Regulatory Change Register | Compliance | CCO | Continuous | All |
+| 6 | High-Impact AI Decision Classification (per model) | RAO | Gov Committee | Per new model | GN + MMS |
+| 7 | Model Concept Document (per model) | Model Developer | Model Risk | Pre-development | MMS |
+| 8 | Model Development Document (per model) | Model Developer | Gov Committee | Post-development | MMS |
+| 9 | Validation Report (per model) | Validation Team | Gov Committee | Per cycle | MMS |
+| 10 | Validation Finding Tracker | Model Risk | CRO | Continuous | MMS |
+| 11 | Operational Manual (per model) | Model Owner | Model Risk | At deployment | MMS |
+| 12 | Model Change Log (per model) | Model Owner | Model Risk | Per change | MMS |
+| 13 | Model Monitoring Plan (per model) | Model Owner | Model Risk | At deployment | MMS |
+| 14 | Monitoring Reports (per model) | Model Owner | Gov Committee | Quarterly (T1) | MMS |
+| 15 | Fairness Testing Report (per model) | Validation Team | Gov Committee | Per validation | MMS + GN |
+| 16 | Vendor AI Risk Assessment | Procurement/Risk | CRO | Per vendor | GN |
+| 17 | Consumer AI Disclosure Language | Legal/Compliance | CCO | Annual review | GN + Charter |
+| 18 | Human Review Process Document | Operations | CCO | Annual review | GN |
+| 19 | AI Complaints Procedure | Compliance | CCO | Annual review | GN |
+| 20 | Board AI Risk Report | CRO/RAO | Board | Quarterly | All |
+| 21 | AI Regulatory Change Register | Compliance | CCO | Continuous | All |
+
+> Item 6 (High-Impact AI Decision Classification) is new in v1.1 — added to formalise the classification requirement introduced in Section 3.
 
 ---
 
-## 7. UAE-Specific Practical Considerations
+## 8. UAE-Specific Practical Considerations
 
-### 7.1 Regulatory Examination Preparation
+### 8.1 Regulatory Examination Preparation
 
 CBUAE examiners will assess:
 - **Model Inventory** — first document requested; must be complete and current
+- **High-Impact AI Classification** — examiners will specifically test whether all high-impact use cases are correctly identified
 - **Tier 1 documentation packs** — sample of 3–5 high-impact models with all five documents
 - **Interviews** — Responsible AI Officer and Validation team leads
 - **Consumer complaints data** — AI-related themes and resolution
@@ -252,17 +358,17 @@ CBUAE examiners will assess:
 
 > **Key insight:** Examiners differentiate between governance *on paper* vs. governance *in practice*. Meeting minutes, escalation logs, remediation trackers, and monitoring dashboards are the operational evidence that matters.
 
-### 7.2 ADGM and DIFC Entities
+### 8.2 ADGM and DIFC Entities
 
 ADGM/DIFC entities are primarily regulated by FSRA/DFSA respectively, which have their own AI guidance developing in parallel. However the UAE AI Charter applies federally. Entities with dual onshore/free-zone operations must manage compliance across jurisdictions. This guide represents the CBUAE baseline; monitor FSRA and DFSA publications in addition.
 
-### 7.3 Fintech-Specific Proportionality
+### 8.3 Fintech-Specific Proportionality
 
 Proportionality is explicitly recognised in CBUAE's approach. It applies to **how** requirements are met — not **whether** they are met. A fintech with one AI credit scoring model still needs a documented model, a validation (external if needed), a monitoring plan, a consumer disclosure, and a governance mechanism (CEO/board in small entities).
 
 **Always document proportionality decisions explicitly — examiners will ask.**
 
-### 7.4 Generative AI Specific Controls
+### 8.4 Generative AI Specific Controls
 
 GenAI (LLMs for customer service, document generation, financial advice, compliance) is explicitly in scope. Additional required controls:
 
@@ -274,15 +380,15 @@ GenAI (LLMs for customer service, document generation, financial advice, complia
 | Vendor LLM dependency | Full vendor AI due diligence; audit rights; model version change notification in contracts |
 | Model drift | Re-evaluation as underlying LLM versions change |
 
-### 7.5 AML and Fraud AI Considerations
+### 8.5 AML and Fraud AI Considerations
 
-AML transaction monitoring and fraud detection systems are **Tier 1 models**. Specific considerations:
+AML transaction monitoring and fraud detection systems are **Tier 1 models** and meet the High-Impact Decision criteria (Criterion C). Specific considerations:
 - Alert suppression rates and false positive/negative rates are model performance metrics — monitor them
 - Human analyst review of AI-generated alerts is the "human oversight" mechanism — formally document it
 - Model threshold adjustments and retraining are material changes requiring change management and re-validation
 - CBUAE FIU requirements on SAR filing: AI cannot file SARs autonomously — human review and sign-off is mandatory
 
-### 7.6 Interaction with UAE Personal Data Protection Law (PDPL)
+### 8.6 Interaction with UAE Personal Data Protection Law (PDPL)
 
 Federal Decree-Law No. 45 of 2021 intersects with AI governance at every stage:
 
@@ -295,9 +401,17 @@ Federal Decree-Law No. 45 of 2021 intersects with AI governance at every stage:
 | Automated decision-making | Right to human review aligns with Guidance Note Pillar 2 |
 | Cross-border data transfers | Assess and approve all cross-border model training / inference data flows |
 
+### 8.7 Bancassurance and Insurance-Adjacent AI
+
+LFIs operating bancassurance or insurance-adjacent products (embedded insurance, credit life, product protection) are subject to AI governance requirements from **both** the CBUAE and the **Insurance Authority of the UAE (IA)**. Key points:
+- The Insurance Authority has issued its own AI/technology risk guidance applicable to insurance operations
+- AI models used for insurance premium calculation, claims assessment, or underwriting must meet both CBUAE MMS requirements and IA model standards
+- Where requirements differ, apply the more stringent standard and document the dual-framework assessment
+- This guide covers only the CBUAE frameworks — a parallel review against IA guidance is required for any insurance-related AI
+
 ---
 
-## 8. Glossary
+## 9. Glossary
 
 | Term | Definition |
 |------|-----------|
@@ -307,8 +421,9 @@ Federal Decree-Law No. 45 of 2021 intersects with AI governance at every stage:
 | **Guidance Note** | CBUAE Guidance Note on Consumer Protection and Responsible AI (February 2026) |
 | **AI Charter** | UAE Charter for the Development and Use of AI (June 2024) |
 | **Model** | Any quantitative method processing data to produce outputs used in business decisions |
+| **High-Impact AI Decision** | An AI-driven decision meeting one or more of the criteria in Section 3.1 (financial access, financial terms, regulatory consequence, customer relationship, or scale threshold) |
 | **Tier 1 Model** | High-impact, complex model requiring full independent validation and Board oversight |
-| **Tier 2 Model** | Medium-impact model requiring validation and Senior Management oversight |
+| **Tier 2 Model** | Medium-impact model requiring proportionate validation and Senior Management oversight |
 | **Tier 3 Model** | Low-impact model requiring periodic documented review |
 | **Model Inventory** | Central register of all models in use, development, or recently decommissioned |
 | **RAO** | Responsible AI Officer — named Senior Management accountable for AI governance |
@@ -321,6 +436,7 @@ Federal Decree-Law No. 45 of 2021 intersects with AI governance at every stage:
 | **DIFC** | Dubai International Financial Centre — financial free zone regulated by DFSA |
 | **FSRA** | Financial Services Regulatory Authority (ADGM regulator) |
 | **DFSA** | Dubai Financial Services Authority (DIFC regulator) |
+| **IA** | Insurance Authority of the UAE |
 | **FIU** | Financial Intelligence Unit (CBUAE) |
 | **SAR** | Suspicious Activity Report |
 | **TPRM** | Third-Party Risk Management |
@@ -328,20 +444,21 @@ Federal Decree-Law No. 45 of 2021 intersects with AI governance at every stage:
 | **Proxy Discrimination** | Indirect discrimination via variables statistically correlated with protected characteristics |
 | **Four-Eyes Principle** | Requirement for independent review by a person not involved in original work |
 | **CSI** | Characteristic Stability Index — measures stability of model feature distributions |
+| **D-SIB** | Domestic Systemically Important Bank — CBUAE classification for the largest/most systemic UAE banks |
 
 ---
 
-## 9. Board Briefing Card
+## 10. Board Briefing Card
 
-See **[BOARD-BRIEFING.md](./BOARD-BRIEFING.md)** for the full one-page briefing.
+See **[BOARD-BRIEFING.md](./BOARD-BRIEFING.md)** for the full board briefing.
 
 ### 30-Second Executive Summary
 
-> The CBUAE now requires every licensed financial institution deploying AI to have: **(1)** a named Senior Manager accountable for AI, **(2)** a complete inventory of all AI/ML models, **(3)** independent validation of high-impact models, **(4)** consumer disclosures and human override mechanisms, and **(5)** ongoing bias monitoring. These are examination requirements **in effect now** — not future aspirations.
+> The CBUAE now requires every licensed financial institution deploying AI to have: **(1)** a named Senior Manager accountable for AI, **(2)** a complete inventory of all AI/ML models with high-impact decisions correctly classified, **(3)** independent validation of high-impact models, **(4)** consumer disclosures and human override mechanisms, and **(5)** ongoing bias monitoring. These are examination requirements **in effect now** — not future aspirations.
 
 ### Three Questions Every Board Must Ask Management
 
-1. *"Show me our Model Inventory — how many AI systems do we operate, and which are Tier 1 high-impact?"*
+1. *"Show me our Model Inventory — how many AI systems do we operate, which are classified as high-impact, and which are Tier 1?"*
 2. *"Which Tier 1 models have had independent validation in the last 12 months — and what did validation find?"*
 3. *"How do we tell customers that AI made a decision affecting them, and what is their recourse?"*
 
@@ -352,6 +469,7 @@ See **[BOARD-BRIEFING.md](./BOARD-BRIEFING.md)** for the full one-page briefing.
 Monitor for updates from:
 - [CBUAE Publications](https://www.cbuae.gov.ae) — new circulars, examination findings, updated guidance
 - [UAE AI Office](https://ai.gov.ae) — national AI strategy updates, Charter amendments
+- [Insurance Authority UAE](https://ia.gov.ae) — AI guidance for insurance/bancassurance operations
 - [FSRA (ADGM)](https://www.fsra.ae) — if operating in Abu Dhabi Global Market
 - [DFSA (DIFC)](https://www.dfsa.ae) — if operating in Dubai International Financial Centre
 
@@ -363,4 +481,4 @@ This guide is for informational and educational purposes only. It does not const
 
 ---
 
-*Published: April 2026 | License: CC0-1.0 (Public Domain) | Maintained by: [Ankit Uniyal](https://github.com/Ankit-Uniyal)*
+*Version 1.1 | Published: April 2026 | License: CC0-1.0 (Public Domain) | Maintained by: [Ankit Uniyal](https://github.com/Ankit-Uniyal) | See [CHANGELOG.md](./CHANGELOG.md) for version history*
